@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ladsmod",
+  "name": "Lads Plugin",
+  "description": "Take that mc mod discord!",
+  "version": "${version}",
+  "mcversion": "1.8.8",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Lad"],
+  "credits": "DC Thunder, xilef11, srock",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
