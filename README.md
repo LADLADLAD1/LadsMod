@@ -12,3 +12,11 @@ I'm planning to update the mod eventually, understand that coding (especially al
 If you plan to use the source to make your own additions to the mod, or to sample code, feel free to do so but mention me in credits.
 
 One last thing, if you have any suggestion or improvement to make (assuming it's not extremely hard to make), I will gladly consider adding it to the mod.
+
+# Changelog
+
+### 1.0 (21/1/2023)
+- Measure
+- Ray Teleport
+- Teleport Line
+- Rebindable Reload Resources (f3s)
