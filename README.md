@@ -15,8 +15,17 @@ One last thing, if you have any suggestion or improvement to make (assuming it's
 
 # Changelog
 
-### 1.0 (21/1/2023)
+### 1.0 (Jan 21, 2023)
 - Measure
 - Ray Teleport
 - Teleport Line
 - Rebindable Reload Resources (f3s)
+- Added Bugs
+### 1.1 (Feb 4, 2023)
+- Updated Measure
+- Full Bright
+- Boost Timings
+- Toggle Sprint
+- Barrier Vision
+- Changed Config
+- Added Bugs
