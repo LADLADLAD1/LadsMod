@@ -40,6 +40,35 @@ public class RenderUtil {
 		GlStateManager.popAttrib();
 		GlStateManager.popMatrix();
 	}
+
+	public static void drawString3d(float partialTicks, String text, Vec3 pos, float scale, int color) {
+		Vec3 playerOrigin = mc.thePlayer.getPositionEyes(partialTicks).subtract(0.0, mc.thePlayer.getEyeHeight(), 0.0);
+
+		GlStateManager.pushMatrix();
+
+		GlStateManager.disableAlpha();
+		GlStateManager.disableDepth();
+		GlStateManager.enableBlend();
+		GlStateManager.disableLighting();
+
+		GlStateManager.tryBlendFuncSeparate(770, 771, 1, 0);
+
+		GlStateManager.translate(pos.xCoord - playerOrigin.xCoord, pos.yCoord - playerOrigin.yCoord, pos.zCoord - playerOrigin.zCoord);
+		GlStateManager.scale(0.035f, -0.035f, 0.035f);
+		GlStateManager.rotate(-mc.thePlayer.rotationYaw + 180.0f, 0, 1, 0);
+		GlStateManager.rotate(mc.thePlayer.rotationPitch, 1, 0, 0);
+
+		GlStateManager.scale(scale, scale, scale);
+		mc.fontRendererObj.drawStringWithShadow(text, -mc.fontRendererObj.getStringWidth(text) / 2.0f, -mc.fontRendererObj.FONT_HEIGHT / 2.0f, color);
+		GlStateManager.scale(1.0f, 1.0f, 1.0f);
+
+		GlStateManager.enableLighting();
+		GlStateManager.disableBlend();
+		GlStateManager.enableDepth();
+		GlStateManager.enableAlpha();
+
+		GlStateManager.popMatrix();
+	}
 	
 	/**
 	 * Draws a box in 2d space.

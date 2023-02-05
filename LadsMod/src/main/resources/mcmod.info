@@ -2,13 +2,13 @@
 {
   "modid": "ladsmod",
   "name": "Lads Plugin",
-  "description": "Take that mc mod discord!",
+  "description": "Designed by Lad, made for 2 player parkour on Hypixel housing.",
   "version": "${version}",
   "mcversion": "1.8.8",
-  "url": "",
+  "url": "https://github.com/LADLADLAD1/LadsMod",
   "updateUrl": "",
   "authorList": ["Lad"],
-  "credits": "DC Thunder, xilef11, srock",
+  "credits": "SesuMoe, xilef11, srock_,",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []

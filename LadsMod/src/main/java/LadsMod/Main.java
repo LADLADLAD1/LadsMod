@@ -14,7 +14,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 
-
 @Mod(
         modid="ladsmod",
         name="Lads Mod",
@@ -31,11 +30,14 @@ public class Main
     public static KeyBinding extendLine = new KeyBinding("Extend line", Keyboard.CHAR_NONE, "Lad's Mod");
     public static KeyBinding openDebug = new KeyBinding("Reload Resources (aka f3 s)", Keyboard.CHAR_NONE, "Lad's Mod");
     public static KeyBinding measure = new KeyBinding("Measure",Keyboard.CHAR_NONE,"Lad's Mod");
+    public static KeyBinding toggleSprint = new KeyBinding("Toggle Sprint",Keyboard.CHAR_NONE,"key.categories.movement");
+    public static KeyBinding seeBarrier = new KeyBinding("See barriers", Keyboard.CHAR_NONE, "Lad's Mod");
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         ConfigManager.init(event.getSuggestedConfigurationFile());
         MinecraftForge.EVENT_BUS.register(new ConfigManager());
+
     }
     
     @EventHandler
@@ -45,6 +47,8 @@ public class Main
         ClientRegistry.registerKeyBinding(extendLine);
         ClientRegistry.registerKeyBinding(openDebug);
         ClientRegistry.registerKeyBinding(measure);
+        ClientRegistry.registerKeyBinding(seeBarrier);
+        ClientRegistry.registerKeyBinding(toggleSprint);
         MinecraftForge.EVENT_BUS.register(new KeyInputHandler());
         MinecraftForge.EVENT_BUS.register(new TeleportLine());
         MinecraftForge.EVENT_BUS.register(new EventListener());

@@ -117,7 +117,7 @@ public class MeasureInput {
     }
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
-    public void customDebug(RenderGameOverlayEvent.Post event) {
+    public void drawStrDist(RenderGameOverlayEvent.Post event) {
         if (!(event.type== RenderGameOverlayEvent.ElementType.HOTBAR)) return;
         if (coordsStr!=null && measure.doRender()) {
             ScaledResolution scaledResolution = new ScaledResolution(Minecraft.getMinecraft());

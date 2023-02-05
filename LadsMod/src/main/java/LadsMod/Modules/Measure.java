@@ -62,13 +62,18 @@ public class Measure extends Gui {
         return pos2;
     }
 
-    public void drawDist(float partialTicks) { //more efficient, looks ugly
+    public void drawDist(float partialTicks) {
         Vec3 p1 = getMid(getVec(pos1));
         int color = -1;
 
         RenderUtil.renderLine(partialTicks, p1, new Vec3(pos2.getX() + 0.5f, p1.yCoord, p1.zCoord), 1, color);
         RenderUtil.renderLine(partialTicks, new Vec3(pos2.getX() + 0.5f, p1.yCoord, p1.zCoord), new Vec3(pos2.getX() + 0.5f, p1.yCoord, pos2.getZ() + 0.5f), 1, color);
         RenderUtil.renderLine(partialTicks, new Vec3(pos2.getX() + 0.5f, p1.yCoord, pos2.getZ() + 0.5f), getMid(getVec(pos2)), 1, color);
+        if (ConfigManager.text3D) {
+            Draw3DString(partialTicks);
+        } else draw2DString();
+    }
+    private void draw2DString (){
         coordsStr = Math.abs(pos1.getX()-pos2.getX())+" "+Math.abs(pos1.getY()-pos2.getY())+" "+Math.abs(pos1.getZ()-pos2.getZ());
         if (Math.abs(pos1.getX()-pos2.getX())>0)
             coordsStr=Math.abs(pos1.getX()-pos2.getX())-1+" ";
@@ -78,5 +83,13 @@ public class Measure extends Gui {
             coordsStr = coordsStr+(Math.abs(pos1.getZ()-pos2.getZ())-1);
         else coordsStr = coordsStr+0;
     }
+    private void Draw3DString (Float partialTicks) {
+        if (Math.abs(pos1.getX()-pos2.getX())>1)
+            RenderUtil.drawString3d(partialTicks,Math.abs(pos1.getX()-pos2.getX())-1+" ",new Vec3((pos1.getX()+pos2.getX())/2+0.5,pos1.getY()+0.5,pos1.getZ()+0.5),0.5f,-1);
+        if (Math.abs(pos1.getZ()-pos2.getZ())>1)
+            RenderUtil.drawString3d(partialTicks,Math.abs(pos1.getZ()-pos2.getZ())-1+" ",new Vec3(pos2.getX()+0.5,pos1.getY()+0.5,(pos1.getZ()+pos2.getZ())/2+0.5),0.5f,-1);
+        if (Math.abs(pos1.getY()-pos2.getY())>1)
+            RenderUtil.drawString3d(partialTicks,Math.abs(pos1.getY()-pos2.getY())+" ",new Vec3(pos2.getX()+0.5,(pos1.getY()+pos2.getY())/2+1,pos2.getZ()+0.5),0.5f,-1);
 
+    }
 }

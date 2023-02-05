@@ -51,17 +51,20 @@ public class TeleportLine {
                 } catch(IllegalArgumentException e) {e.printStackTrace();}
                 //do stuff here when scroll up
                 EventListener.dist++;
+                EventListener.dist = clamp(EventListener.dist,1,50);
             } else if (scrollDelta < 0) {
                 try {
                     event.setCanceled(true);
                 } catch(IllegalArgumentException e) {e.printStackTrace();}
                 //do stuff here when scroll down
                 EventListener.dist--;
+                EventListener.dist = clamp(EventListener.dist,1,50);
             }
         }
     }
+    private int clamp(int value, int min, int max) {return Math.max(min, Math.min(max, value));}
     public static void drawPos(RenderWorldLastEvent event,Integer distance) {
-        RenderUtil.renderBlockMask(event.partialTicks*10,getPos(distance), ColorUtil.hex(3,144,252,0.5F));
+        RenderUtil.renderBlockMask(event.partialTicks,getPos(distance), ColorUtil.hex(3,144,252,0.5F));
     }
     public static Vec3 getPos(int dist) {
         Vec3 lookVec = Minecraft.getMinecraft().thePlayer.getLookVec();
